@@ -1,0 +1,55 @@
+<div class="dropdown text-end">
+  <a
+    href="#"
+    class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+    (click)="toggleDropdown()"
+    [class.show]="isDropdownOpen"
+  >
+    <fa-icon [icon]="faShoppingCart"></fa-icon>
+    <span class="badge bg-secondary">{{ cart.length }}</span>
+  </a>
+
+  <ul
+    class="dropdown-menu dropdown-menu-end text-small"
+    [class.show]="isDropdownOpen"
+  >
+    <li *ngIf="cart.length === 0" class="dropdown-item text-center">
+      <em>Il carrello è vuoto</em>
+    </li>
+
+    <li *ngFor="let product of cart" class="dropdown-item">
+      <div class="d-flex align-items-center">
+        <img
+          [src]="product.images"
+          alt="product image"
+          class="img-thumbnail"
+          style="width: 50px; height: 50px; margin-right: 10px"
+        />
+        <div class="flex-grow-1">
+          <p class="mb-0">{{ product.title }}</p>
+          <small class="text-muted">In stock:{{ product.stock }}</small>
+          <small class="text-muted ms-1"
+            >Prezzo: {{ product.price | currency }}</small
+          >
+        </div>
+        <button
+          (click)="removeFromCart(product)"
+          class="btn btn-sm btn-danger ms-2"
+        >
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+    </li>
+
+    <li><hr class="dropdown-divider" /></li>
+
+    <li class="dropdown-item text-center">
+      <strong>Totale: {{ calculateTotal() | currency }}</strong>
+    </li>
+    <li class="dropdown-item text-center">
+      <a routerLink="/checkout" class="btn btn-success btn-sm"
+        >Vai al checkout</a
+      >
+    </li>
+  </ul>
+</div>

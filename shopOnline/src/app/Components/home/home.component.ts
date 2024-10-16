@@ -8,6 +8,7 @@ import { iproducts } from '../../interfaces/i-product';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
+  cart$: any;
   constructor(private productSvc: ArticoliService) {}
   arrBeauty!: iproducts[];
   arrFragrances!: iproducts[];
@@ -17,11 +18,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.productSvc.getAllProduct().subscribe({
       next: (data) => {
-        console.log('Dati ricevuti:', data);
         this.arrBeauty = data.filter((data) => data.category == 'beauty');
         this.arrFragrances = data.filter(
           (data) => data.category == 'fragrances'
         );
+
         this.arrFurniture = data.filter((data) => data.category == 'furniture');
         this.arrGroceries = data.filter((data) => data.category == 'groceries');
       },
@@ -29,5 +30,12 @@ export class HomeComponent implements OnInit {
         console.error('Errore durante la chiamata:', error); // Gestione errore
       },
     });
+  }
+  getProductCart(product: iproducts) {
+    this.productSvc.getProductCart(product);
+  }
+
+  getArticoliPreferiti(product: iproducts) {
+    this.productSvc.getArticoliPreferiti(product);
   }
 }

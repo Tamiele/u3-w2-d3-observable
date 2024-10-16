@@ -1,0 +1,46 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(177, 167, 155);
+}
+
+main {
+  flex-grow: 1;
+}
+img {
+  width: 300px;
+}
+
+/* Animazione di fade-in e slide-in */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel-container {
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-out forwards;
+  transition: opacity 1s ease-out;
+}
+
+.carousel-container:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.carousel-container:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.carousel-container:nth-child(3) {
+  animation-delay: 1.3s;
+}
+
+.carousel-container:nth-child(4) {
+  animation-delay: 1.5s;
+}

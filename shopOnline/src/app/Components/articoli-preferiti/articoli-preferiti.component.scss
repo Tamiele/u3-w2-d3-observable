@@ -1,0 +1,10 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(177, 167, 155);
+}
+
+main {
+  flex-grow: 1;
+  height: 100vh;
+}

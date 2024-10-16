@@ -1,23 +1,127 @@
-<header class="app-navbar"></header>
-<main class="container d-flex justify-content-center">
-  <ngb-carousel>
-    <ng-template *ngFor="let beauty of arrBeauty" ngbSlide>
-      <div class="d-flex flex-column align-items-center">
-        <div class="picsum-img-wrapper mb-3">
+<body>
+  <header class="app-navbar"></header>
+
+  <main class="container d-flex flex-column">
+    <h2 class="text-center my-2">Category: Beauty</h2>
+
+    <ngb-carousel class="carousel-container">
+      <ng-template *ngFor="let beauty of arrBeauty" ngbSlide>
+        <div class="picsum-img-wrapper d-flex flex-column align-items-center">
+          <img class="img-fluid" [src]="beauty.images" alt="Beauty" />
+          <div class="carousel- text-center">
+            <h2 class="text-black">{{ beauty.brand }}</h2>
+            <h3 class="text-black">{{ beauty.title }}</h3>
+            <p class="text-black">{{ beauty.description }}.</p>
+          </div>
+          <div class="my-5">
+            <button (click)="getArticoliPreferiti(beauty)" class="btn btn-info">
+              Aggiungi a Preferiti
+            </button>
+            <button (click)="getProductCart(beauty)" class="btn btn-info ms-1">
+              Aggiungi al Carrello
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
+    <h2 class="text-center my-2">Category: Fragrances</h2>
+
+    <ngb-carousel class="carousel-container">
+      <ng-template *ngFor="let fragrances of arrFragrances" ngbSlide>
+        <div class="picsum-img-wrapper d-flex flex-column align-items-center">
           <img
             class="img-fluid"
-            [src]="beauty.images"
-            alt="Beauty"
-            style="width: 300px; height: auto"
+            [src]="fragrances.images.slice(0, 1)"
+            alt="fragrances"
           />
+          <div class="carousel- text-center">
+            <h2 class="text-black">{{ fragrances.brand }}</h2>
+            <h3 class="text-black">{{ fragrances.title }}</h3>
+            <p class="text-black">{{ fragrances.description }}.</p>
+          </div>
+          <div class="my-5">
+            <button
+              (click)="getArticoliPreferiti(fragrances)"
+              class="btn btn-info"
+            >
+              Aggiungi a Preferiti
+            </button>
+            <button
+              (click)="getProductCart(fragrances)"
+              class="btn btn-info ms-1"
+            >
+              Aggiungi al Carrello
+            </button>
+          </div>
         </div>
-        <!-- Spostato sotto l'immagine -->
-        <div class="carousel-caption text-center mt-3">
-          <h2 class="text-black">{{ beauty.brand }}</h2>
-          <h3 class="text-black">{{ beauty.title }}</h3>
-          <p class="text-black">{{ beauty.description }}.</p>
+      </ng-template>
+    </ngb-carousel>
+
+    <h2 class="text-center my-2">Category: Furniture</h2>
+
+    <ngb-carousel class="carousel-container">
+      <ng-template *ngFor="let furniture of arrFurniture" ngbSlide>
+        <div class="picsum-img-wrapper d-flex flex-column align-items-center">
+          <img
+            class="img-fluid"
+            [src]="furniture.images.slice(0, 1)"
+            alt="furniture"
+          />
+          <div class="carousel- text-center">
+            <h2 class="text-black">{{ furniture.brand }}</h2>
+            <h3 class="text-black">{{ furniture.title }}</h3>
+            <p class="text-black">{{ furniture.description }}.</p>
+          </div>
+          <div class="my-5">
+            <button
+              (click)="getArticoliPreferiti(furniture)"
+              class="btn btn-info"
+            >
+              Aggiungi a Preferiti
+            </button>
+            <button
+              (click)="getProductCart(furniture)"
+              class="btn btn-info ms-1"
+            >
+              Aggiungi al Carrello
+            </button>
+          </div>
         </div>
-      </div>
-    </ng-template>
-  </ngb-carousel>
-</main>
+      </ng-template>
+    </ngb-carousel>
+
+    <h2 class="text-center my-2">Category: Groceries</h2>
+
+    <ngb-carousel class="carousel-container">
+      <ng-template *ngFor="let groceries of arrGroceries" ngbSlide>
+        <div class="picsum-img-wrapper d-flex flex-column align-items-center">
+          <img
+            class="img-fluid"
+            [src]="groceries.images.slice(0, 1)"
+            alt="groceries"
+          />
+          <div class="carousel- text-center">
+            <h2 class="text-black">{{ groceries.brand }}</h2>
+            <h3 class="text-black">{{ groceries.title }}</h3>
+            <p class="text-black">{{ groceries.description }}.</p>
+          </div>
+          <div class="my-5">
+            <button
+              (click)="getArticoliPreferiti(groceries)"
+              class="btn btn-info"
+            >
+              Aggiungi a Preferiti
+            </button>
+            <button
+              (click)="getProductCart(groceries)"
+              class="btn btn-info ms-1"
+            >
+              Aggiungi al Carrello
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </main>
+</body>
