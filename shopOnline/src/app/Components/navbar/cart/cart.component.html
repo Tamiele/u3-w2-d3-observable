@@ -1,9 +1,9 @@
 <div class="dropdown text-end">
   <a
-    href="#"
     class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
     (click)="toggleDropdown()"
     [class.show]="isDropdownOpen"
+    aria-expanded="isDropdownOpen"
   >
     <fa-icon [icon]="faShoppingCart"></fa-icon>
     <span class="badge bg-secondary">{{ cart.length }}</span>
@@ -27,7 +27,7 @@
         />
         <div class="flex-grow-1">
           <p class="mb-0">{{ product.title }}</p>
-          <small class="text-muted">In stock:{{ product.stock }}</small>
+          <small class="text-muted">In stock: {{ product.stock }}</small>
           <small class="text-muted ms-1"
             >Prezzo: {{ product.price | currency }}</small
           >

@@ -12,7 +12,7 @@ export class NavbarComponent {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  closeDropdown() {
-    this.isDropdownOpen = false;
-  }
+  // closeDropdown() {
+  //   this.isDropdownOpen = false;
+  // }
 }
