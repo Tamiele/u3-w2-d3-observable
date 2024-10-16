@@ -1,0 +1,23 @@
+<header class="app-navbar"></header>
+<main class="container d-flex justify-content-center">
+  <ngb-carousel>
+    <ng-template *ngFor="let beauty of arrBeauty" ngbSlide>
+      <div class="d-flex flex-column align-items-center">
+        <div class="picsum-img-wrapper mb-3">
+          <img
+            class="img-fluid"
+            [src]="beauty.images"
+            alt="Beauty"
+            style="width: 300px; height: auto"
+          />
+        </div>
+        <!-- Spostato sotto l'immagine -->
+        <div class="carousel-caption text-center mt-3">
+          <h2 class="text-black">{{ beauty.brand }}</h2>
+          <h3 class="text-black">{{ beauty.title }}</h3>
+          <p class="text-black">{{ beauty.description }}.</p>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</main>
